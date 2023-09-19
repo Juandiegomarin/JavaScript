@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Cambiando imagenes con Java Script</h1>
+    <img id="image" onclick="cambiaImg()" src="./images/charmander.png">
+    <p>Haz click en la foto para cambiar</p>
+
+    <script>
+        function cambiaImg() {
+
+            var imagen = document.getElementById('image');
+
+            if (imagen.src.match('charmander')) {
+
+                imagen.src = "./images/charmeleon.png";
+            }
+
+            else if (imagen.src.match('charmeleon')) {
+
+                imagen.src = "./images/charizard.png";
+            }
+
+            else if (imagen.src.match('charizard')) {
+
+                imagen.src = "./images/megaCharizard.png";
+            }
+
+            else if (imagen.src.match('megaCharizard')) {
+
+                imagen.src = "./images/charmander.png";
+            }
+
+
+        }
+
+    </script>
+
+</body>
+
+</html>
