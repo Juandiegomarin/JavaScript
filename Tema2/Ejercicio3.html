@@ -33,17 +33,31 @@
         let i = 0;
         let j = 0;
 
-        function ordenar(arr1,arr2,arr3){
+
+
+
+
+
+        for (i=0; i < arr1.length; i++) {
 
             
-            for (let index = 0; index < longitud; index++) {
-                
-                
-                
-            }
 
+
+            if (arr1[i] < arr2[j]) {
+                arr3.push(arr1[i])
+
+            } else {
+
+                arr3.push(arr2[j])
+                j++;
+                i--;
+            }
+            
 
         }
+
+        document.getElementById("demo").innerHTML = arr3;
+
     </script>
 
 </body>
