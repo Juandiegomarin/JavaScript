@@ -38,19 +38,22 @@
 
 
 
-        for (i=0; i < arr1.length; i++) {
+        for (i=0; i <arr1.length; i++) {
 
             
 
 
             if (arr1[i] < arr2[j]) {
-                arr3.push(arr1[i])
+                arr3.push(arr1[i]);
 
             } else {
 
-                arr3.push(arr2[j])
+                arr3.push(arr2[j]);
                 j++;
                 i--;
+            }
+            if(j==arr2.length-1){
+                arr3.push(arr2[arr2.length-1]);
             }
             
 
