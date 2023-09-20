@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 5</title>
+</head>
+
+<body>
+
+
+    <button type="button" onclick="espanyol()">Español</button>
+    <button type="button" onclick="ingles()">Ingles</button>
+    <button type="button" onclick="ruso()">Ruso</button>
+    <p id="frase"></p>
+    <script>
+
+        function espanyol() {
+
+            document.getElementById('frase').innerHTML = "Hola"
+            document.getElementById('frase').style.color="red";
+
+        }
+        function ingles() {
+
+            document.getElementById('frase').innerHTML = "Hello";
+            document.getElementById('frase').style.color="blue";
+
+        }
+        function ruso() {
+
+            document.getElementById('frase').innerHTML = "привет";
+            document.getElementById('frase').style.color="green";
+
+        }
+
+    </script>
+</body>
+
+</html>
