@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <p id="secuencia"></p>
+
+
+
+
+    <script>
+
+        
+        
+        
+        
+        function karratraka(posicion){
+
+            if(posicion<3){
+            return 1;
+
+            }else{
+
+                return karratraka(posicion-1)+karratraka(posicion-2)+1;
+            }
+
+            
+        }
+
+        for(let i=1;i<7;i++){
+
+            let x= document.getElementById("secuencia");
+
+            x.innerHTML=x.innerHTML+" "+karratraka(i);
+
+            console.log(karratraka(i));
+
+
+        }
+
+        
+
+
+    </script>
+    
+</body>
+</html>

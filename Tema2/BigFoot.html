@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+
+    <script>
+
+        var arr=["O","F","O","O","S","T","O","F","O","O","O","T","O","F","O","O","O","O","O","T"];
+        var primeraPosicion=0;
+        var ultimaPosicion=0;
+
+        function contar(pos){
+
+            if(arr[pos]!="F"){
+
+                return contar(pos+1);
+
+            }else{
+
+                primeraPosicion=pos;
+
+                if(arr[pos]!="O"&& arr[pos]!="T"){
+
+                    primeraPosicion=0;
+                    return contar(pos+1);
+                    
+
+                }
+                else{
+                    if(arr[pos]=="O"){
+
+                        return contar(pos+1);
+                    }else{
+
+                        ultimaPosicion=pos;
+                        return ultimaPosicion-primeraPosicion;
+
+                    }
+
+                }
+
+
+
+            }
+
+
+
+
+        }
+
+        console.log(contar(0));
+
+
+
+
+    </script>
+    
+</body>
+</html>
