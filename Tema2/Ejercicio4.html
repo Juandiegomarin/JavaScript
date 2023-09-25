@@ -18,14 +18,16 @@
 
         function sumar(longitud) {
 
-
+            
             if (longitud == 0) {
+                
                 return 0;
 
             }
             else {
-                return arr[longitud - 1] + sumar[longitud - 1];
-
+                
+                return arr[longitud - 1] + sumar(longitud - 1);
+                
             }
         }
 
