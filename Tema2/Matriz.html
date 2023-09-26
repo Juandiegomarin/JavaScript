@@ -14,44 +14,30 @@
 
 
 
-        function sumar(longitud) {
+        function sumar(arr) {
 
 
 
-            if (longitud == 0) {
+            if (arr.length == 0) {
 
                 return 0;
 
             }
-            else {
+            for (let i = arr.length-1; i > 0; i--) {
+                
+                if (Array.isArray(arr[i])) {
+                    
+                    return sumar(arr[i]);
+                }else{
 
-                if (Array.isArray(numeros[longitud - 1])) {
-
-
-                    numeros = numeros[longitud - 1];
-                    longitud = numeros.length;
-
-                    if (Array.isArray(numeros[longitud - 1])){
-                        numeros = numeros[longitud - 1];
-                        longitud = numeros.length;
-
-                        return numeros[longitud] + sumar(longitud);
-
-                    }else{
-
-                    return numeros[longitud] + sumar(longitud);
+                    
+                     
                 }
-                }
-                else {
-
-
-                    return numeros[longitud - 1] + sumar(longitud - 1);
-                }
-
+                
             }
         }
 
-        console.log("El sumatorio es: " + sumar(numeros.length));
+        console.log("El sumatorio es: " + sumar(numeros));
 
 
 
