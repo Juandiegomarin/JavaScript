@@ -46,20 +46,24 @@
                     
                     if (biocenosis[x][y - 1] === "H") {
 
-                        biocenosis[x][y - 1] = " "
+                        biocenosis[x][y - 1] = " ";
                        return infectar(x, y - 1);
+
                     }else if (biocenosis[x][y + 1] === "H") {
 
-                        biocenosis[x][y + 1] = " "
+                        biocenosis[x][y + 1] = " ";
                        return infectar(x, y + 1);
+
                     }else if (biocenosis[x - 1][y] === "H") {
 
-                        biocenosis[x - 1][y] = " "
+                        biocenosis[x - 1][y] = " ";
                         return infectar(x - 1, y);
+
                     }else if (biocenosis[x + 1][y] === "H") {
 
-                        biocenosis[x + 1][y] = " "
+                        biocenosis[x + 1][y] = " ";
                         return infectar(x + 1, y);
+
                     }
                return biocenosis;
                 
