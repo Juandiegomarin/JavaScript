@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        
+        let tablero = new Array();
+        let maxx = 9;
+        let maxy = 9;
+
+        function aleatorio(min, max) {
+            var horquilla = max - min;
+            return Math.round(Math.random() * horquilla + min);
+        }
+
+        function rellena() {
+
+            for (let i = 0; i < maxx; i++) {
+
+                tablero[i] = new Array();
+
+                for (let j = 0; j < maxy; j++) {
+
+                    if (aleatorio(0,2) == 0 || aleatorio(0,2)==1) {
+                        tablero[i][j] = "O";
+                    } else {
+                     tablero[i][j] = "S";
+                    }
+                 }
+            }
+        }
+
+        function resuelve() {
+            //función que resuelve el juego
+        }
+
+        rellena();
+        console.log(JSON.parse(JSON.stringify(tablero)));
+        resuelve();
+        console.log(tablero);
+
+    </script>
+
+</body>
+
+</html>
