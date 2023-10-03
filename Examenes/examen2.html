@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        let people = ["perico", "juanico",
+            "andres", "dimas", "gestas", "zarco", "maimonides",
+            "elias", "jeremias", "dimas", "dimas", "gestas"];
+        console.log(people)
+
+        
+        
+        
+        function FindMyGuy(array, nombre, posicion) {
+            var numRep = 0;
+            
+
+            if (posicion < array.length) {
+
+                if (array[posicion] === nombre) {
+
+                    numRep++;
+                    return numRep + FindMyGuy(array, nombre, posicion + 1);
+
+                } else {
+
+                    return numRep + FindMyGuy(array, nombre, posicion + 1);
+                }
+            }
+
+        return numRep;
+
+            
+        }
+        var posicion=0;
+
+        console.log(FindMyGuy(people,"dimas",posicion));
+    </script>
+
+</body>
+
+</html>
