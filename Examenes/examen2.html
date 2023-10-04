@@ -15,33 +15,33 @@
             "elias", "jeremias", "dimas", "dimas", "gestas"];
         console.log(people)
 
-        
-        
-        
+
+
+
         function FindMyGuy(array, nombre, posicion) {
             var numRep = 0;
-            
+
 
             if (posicion < array.length) {
 
                 if (array[posicion] === nombre) {
 
                     numRep++;
-                    return numRep + FindMyGuy(array, nombre, posicion + 1);
 
-                } else {
 
-                    return numRep + FindMyGuy(array, nombre, posicion + 1);
                 }
+
+                return numRep + FindMyGuy(array, nombre, posicion + 1);
+
             }
 
-        return numRep;
+            return numRep;
 
-            
+
         }
-        var posicion=0;
+        var posicion = 0;
 
-        console.log(FindMyGuy(people,"dimas",posicion));
+        console.log(FindMyGuy(people, "gestas", posicion));
     </script>
 
 </body>
