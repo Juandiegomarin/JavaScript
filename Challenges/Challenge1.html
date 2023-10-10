@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>    
+
+        var nombres=["Juan Diego","Alberto","Manuel","María","Raul","Juan Diego","Ana","Antonia","Juan Diego"];
+        
+
+        function contarNombres(pos){
+
+            if(pos<nombres.length-1){
+
+            
+            let rep = FindMyGuy(nombres,nombres[pos],0);
+            let nombre= nombres[pos];
+            
+
+            if(rep<FindMyGuy(nombres,nombres[pos+1],0)){
+
+                rep=FindMyGuy(nombres,nombres[pos+1],0);
+                nombre=nombres[pos+1];
+                
+            }else{
+                    contarNombres(pos+1);
+            }
+        }else{
+            return 0;
+        }
+        return nombre;
+       
+            
+        };
+
+        function FindMyGuy(array, nombre, posicion) {
+            var numRep = 0;
+
+
+            if (posicion < array.length) {
+
+                if (array[posicion] === nombre) {
+
+                    numRep++;
+
+
+                }
+
+                return numRep + FindMyGuy(array, nombre, posicion + 1);
+
+            }
+
+            return numRep;
+
+
+        }
+
+        xonsole.log("El nombre mas popular es: "+contarNombres(0))
+        
+    
+    </script>
+    
+</body>
+</html>
