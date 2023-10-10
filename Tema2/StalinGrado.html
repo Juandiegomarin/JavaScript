@@ -20,18 +20,69 @@
             ["", "", "", "", "R", "", "", "A", "A"]
         ];
 
+        var x=0;
+        var y=0;
 
 
-        function comprobarGanador() {
 
+        function buscarAleman(){
             
+            for (let i = 0; i < battlefield.length; i++) {
+                
+                for (let j = 0; j < battlefield[i].length; j++) {
+                    if(battlefield[i][j]==="A"){
+                        x=i;
+                        y=j;
 
-            
-
-            return "Han ganado los alemanes";
+                        return true;
+                    }
+                    
+                }
+                
+            }
+            return false;
         }
 
-        console.log(comprobarGanador());
+        function rellenar(x,y){
+
+            // Izquierda
+            if (y > 0 && battlefield[x][y - 1] === "A" || y > 0 && battlefield[x][y - 1] === "") {
+                battlefield[x][y-1]="X";
+                rellenar(x, y - 1);
+            //Derecha
+            }if (y < battlefield[x].length - 1 && battlefield[x][y + 1] ==="A" || y < battlefield[x].length - 1 && battlefield[x][y + 1] ==="") {
+
+                battlefield[x][y+1]="X";
+                rellenar(x, y + 1);
+
+            //Abajo  
+            }if (x < battlefield.length - 1 && battlefield[x + 1][y] === "A" || x < battlefield.length - 1 && battlefield[x + 1][y] === "") {
+
+                battlefield[x+1][y]="X";
+                rellenar(x + 1, y);
+            //Arriba
+            }if (x > 0 && battlefield[x - 1][y] === "A" || x > 0 && battlefield[x - 1][y] === "") {
+
+                battlefield[x-1][y]="X";
+                rellenar(x - 1, y);
+
+            }
+
+            return 0;
+
+        }
+
+        buscarAleman();
+        rellenar(x,y);
+
+        console.log(battlefield);
+
+        if(buscarAleman()){
+
+            console.log("Han ganado los rusos")
+        }else{
+            console.log("Han ganado los alemanes")
+        }
 
 
 

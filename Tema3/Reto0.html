@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        /*Tenemos un array muy grande con elementos de la siguiente estructura:
+        [{28924:"Estepona"},....,{29601:"Marbella"}]
+        Lo que queremos es crear un texto y un botón 
+        que ponga buscar que lo que haga sea mostrar el CP y
+        el nombre de la ciudad que coincida o contenga el texto del campo creado.
+        No importan las mayúsculas y minúsculas en*/
+
+
+
+        var ciudades = [{ Nombre: "Estepona", CodPostal: 29680 },{ Nombre: "Malaga", CodPostal: 12345 },{ Nombre: "Manilva", CodPostal: 54321 },{ Nombre: "Fuengirola", CodPostal: 11111 }];
+
+        const buscarPoblacion = (codPostal) => {
+
+
+            let nombre= ciudades.find((v) => v.CodPostal == codPostal);
+            return nombre;
+        }
+
+
+    </script>
+
+    <form action="Reto0.html" method="post">
+        <p>
+            <label for="codP">Introduzca un Codigo Postal</label>
+            <input type="text" name="codP" id="codP"/>
+            <button type="button"
+                onclick="document.getElementById('name').innerHTML=buscarPoblacion(document.getElementsByName('codP').values)">Calcular</button>
+        </p>
+
+
+
+    </form>
+
+    <p id="name"></p>
+
+
+</body>
+
+</html>
