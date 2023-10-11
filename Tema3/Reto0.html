@@ -18,16 +18,16 @@
         el nombre de la ciudad que coincida o contenga el texto del campo creado.
         No importan las mayúsculas y minúsculas en*/
 
-
-
         var ciudades = [{ Nombre: "Estepona", CodPostal: 29680 },{ Nombre: "Malaga", CodPostal: 12345 },{ Nombre: "Manilva", CodPostal: 54321 },{ Nombre: "Fuengirola", CodPostal: 11111 }];
 
-        const buscarPoblacion = (codPostal) => {
+        const buscarPoblacion = () => {
 
-
-            return ciudades.find((v) => v.CodPostal == codPostal).Nombre;
-            
-        }
+          let codPostal = document.getElementById('codP').value
+          console.log(codPostal)
+          let ciudad = ciudades.find(v=>v.CodPostal==codPostal);
+          let obj = document.getElementById('name')
+          ciudad!=undefined? obj.innerHTML=ciudad.Nombre:obj.innerHTML="NO EXISTE"
+         }
 
 
     </script>
@@ -37,16 +37,11 @@
             <label for="codP">Introduzca un Codigo Postal</label>
             <input type="text" name="codP" id="codP"/>
             <button type="button"
-                onclick="document.getElementById('name').innerHTML=buscarPoblacion(document.getElementsByName('codP').values)">Calcular</button>
+                onclick="buscarPoblacion()">Calcular</button>
         </p>
 
-
-
     </form>
-
     <p id="name"></p>
-
-
 </body>
 
 </html>
