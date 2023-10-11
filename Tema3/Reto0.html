@@ -25,8 +25,8 @@
         const buscarPoblacion = (codPostal) => {
 
 
-            let nombre= ciudades.find((v) => v.CodPostal == codPostal);
-            return nombre;
+            return ciudades.find((v) => v.CodPostal == codPostal).Nombre;
+            
         }
 
 
