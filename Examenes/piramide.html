@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<title>Myfpschool</title>
+
+<head>
+</head>
+
+<body>
+    <input type="number" id="numero" value="5" min="1" max="10" />
+    <p id="parrafo"></p>
+    <input type="button" onclick="dale()" value="dale">
+    <script>
+        function dale() {
+
+            var grado = document.getElementById("numero").value;
+            var contador = grado;
+            var longitud = (2 * grado) + 1;
+            grado++;
+            var matriz = new Array(grado);
+
+
+            for (let i = 0; i < matriz.length; i++) {
+                matriz[i] = new Array(longitud);
+                for (let j = 0; j < matriz[i].length; j++) {
+                    if (j == contador || j == matriz[i].length - 1 - contador) {
+                        matriz[i][j] = 1;
+                    } else { matriz[i][j] = 0; }
+                }
+                contador--;
+            }
+
+            for (let i = 1; i < matriz.length; i++) {
+                for (let j = 1; j < matriz[i].length - 1; j++) {
+                    if (matriz[i][j - 2] != 0 || matriz[i][j + 2] != 0) {
+                        matriz[i][j] = matriz[i - 1][j - 1] + matriz[i - 1][j + 1];
+                    }
+                }
+            }
+            for (let i = 0; i < matriz.length; i++) {
+                for (let j = 0; j < matriz[i].length; j++) {
+                    if (matriz[i][j] == 0) {
+                        matriz[i][j] = "";
+                    }
+                }
+            }
+            console.log(matriz);
+        } 
+    </script>
+</body>
+
+</html>
