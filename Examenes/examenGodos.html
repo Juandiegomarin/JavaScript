@@ -1,0 +1,46 @@
+<!DOCTYPE html> 
+<html lang="es"> 
+<head> 
+<meta charset="UTF-8"> 
+<meta name="viewport" content="width=device-width, 
+initial-scale=1.0"> 
+<title>GODOS</title> 
+</head> 
+<body> 
+<script> 
+const GODOS='{"GODOS":[{"nombre":"Ataúlfo", "anioIni":410,"aniofin":415},{"nombre":"Sigerico", "anioIni":415},{"nombre":"Walia", "anioIni":415,"aniofin":418},{"nombre":"Teodoredo", "anioIni":418,"aniofin":451},{"nombre":"Turismundo", "anioIni":451,"aniofin":453},{"nombre":"Teodorico II", "anioIni":453,"aniofin":466},{"nombre":"Eurico", "anioIni":466,"aniofin":484},{"nombre":"Alarico II", "anioIni":484,"aniofin":507},{"nombre":"Gesaleico", "anioIni":507,"aniofin":511},{"nombre":"Amalarico", "anioIni":511,"aniofin":531},{"nombre":"Teudis", "anioIni":531,"aniofin":548},{"nombre":"Teudiselo", "anioIni":548,"aniofin":59},{"nombre":"Ágila I", "anioIni":549,"aniofin":555},{"nombre":"Atanagildo", "anioIni":551,"aniofin":567},{"nombre":"Liuva I","anioIni":567,"aniofin":572},{"nombre":"Leovigildo", "anioIni":570,"aniofin":586},{"nombre":"Recaredo I", "anioIni":586,"aniofin":601},{"nombre":"Luiva II", "anioIni":601,"aniofin":603},{"nombre":"Witerico", "anioIni":603,"aniofin":610},{"nombre":"Gundemaro", "anioIni":610,"aniofin":612},{"nombre":"Sisebuto", "anioIni":612,"aniofin":621},{"nombre":"Recaredo II", "anioIni":621},{"nombre":"Suintila", "anioIni":621,"aniofin":631},{"nombre":"Sisenando", "anioIni":631,"aniofin":636},{"nombre":"Chintila", "anioIni":636,"aniofin":639},{"nombre":"Tulga", "anioIni":639,"aniofin":642},{"nombre":"Chindasvinto", "anioIni":642,"aniofin":653},{"nombre":"Recesvinto","anioIni":649,"aniofin":672},{"nombre":"Wamba", "anioIni":672,"aniofin":680},{"nombre":"Ervigio", "anioIni":680,"aniofin":687},{"nombre":"Égica", "anioIni":687,"aniofin":702},{"nombre":"Witiza", "anioIni":702,"aniofin":709},{"nombre":"Rodrigo", "anioIni":709,"aniofin":711}]}'
+const SAJONES = '{"SAJONES":[{"nombre":"Recaredo I"}, {"nombre":"Gundemaro"}, {"nombre":"Sisebuto"},{"nombre":"Suintila" },{"nombre":"Chintila" },{"nombre":"Tulgarico" }]}' 
+// 1) Almacena en la variable par true o false dependiendo si el número de reyes godos fue par o impar 
+let impar = false 
+godos=JSON.parse(GODOS);
+impar=godos.GODOS.length%2!=0;
+
+console.log(impar)
+// 2) Muestra el nombre de todos los sajones 
+console.log("***********")
+sajones=JSON.parse(SAJONES);
+console.log(sajones.SAJONES.map(e=>e.nombre))
+// 3) cuantos (en número) godos reinaron entre el 500 y el 600 pero no en años anteriores o posteriores 
+console.log("**********") 
+console.log(godos.GODOS.filter(e=>e.anioIni>=500 && e.aniofin<=600));
+// 4)¿Existió un godo que reinó entre el 600 y 700 que se llamaba Vinteraviko? Responde Sí o No 
+//Seguramente necesitarás usar el operador ternario 
+console.log("**********") 
+if(godos.GODOS.find(e=> e.nombre==="" && e.anioIni<=600 && e.aniofin<=700)!=undefined){
+    console.log("Si")
+}else{
+    console.log("No")
+}
+// 5) Cuantos godos eran sajones. Se quiere saber SOLO los nombres (en array si quieres) 
+console.log("**********") 
+console.log(godos.GODOS.filter(g=>sajones.SAJONES.find(s=>s.nombre==g.nombre)))
+// 6) El nombre de los 5 primeros reyes godos (en array si quieres)
+console.log("**********")
+arr=godos.GODOS.map(e=>e.nombre);
+console.log(arr.filter(e=>arr.indexOf(e)<5))
+// 7) El nombre de los 5 últimos reyes godos (en array si quieres)
+ console.log("**********") 
+ console.log(arr.filter(e=>arr.indexOf(e)>arr.length-6))
+</script> 
+</body> 
+</html>
