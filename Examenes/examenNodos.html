@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>UNION LIST</title>
+</head>
+
+<body>
+    PRIMERA LISTA:
+    <ul id="lista1">
+        <li>manzana</li>
+        <li>pera</li>
+        <ul>
+            <li>conferencia</li>
+            <ul>
+                <li>conferenciaverde</li>
+                <li>conferenciaamarilla</li>
+                <li>conferenciaroja</li>
+            </ul>
+            <li>peradeagua</li>
+            <li>peritadulce</li>
+            <ul>
+                <li>Dimas</li>
+                <li>Gestas</li>
+                <li>Malakatos</li>
+                <li>Jose</li>
+            </ul>
+        </ul>
+        <li>limon</li>
+        <li>limon</li>
+        <li>LIMON</li>
+    </ul>
+    Segunda lista:
+    <ul id="lista2">
+        <li>manzana</li>
+        <li>manzana</li>
+        <ul>
+
+            <li>manzana</li>
+            <li>manzana</li>
+        </ul>
+        <li>pera</li>
+        <li>limon</li>
+    </ul>
+    <ol id="lista3">
+    </ol>
+    <script>
+
+        function insertar(desde, hasta) {
+
+            if (desde.nodeName == "LI") {
+                hasta.push(desde.innerHTML.toUpperCase())
+            } else {
+                for (let i = 0; i < desde.children.length; i++) insertar(desde.children[i], hasta)
+            }
+        }
+
+        
+
+        var lista1=[];
+        var lista2=[];
+
+        var newLista=[];
+
+        insertar(document.getElementById("lista1"),lista1);
+        
+        
+        insertar(document.getElementById("lista2"),lista2);
+        
+       
+
+        lista1.map(e=>{
+            newLista.push(e);
+        })
+        
+
+        lista2.map(e=>{
+            newLista.push(e);
+        })
+        newLista.sort();
+        newLista=newLista.filter((n,i,lista)=>i==0||lista[i]!=lista[i-1]);
+        
+        var padre=document.getElementById("lista3");
+
+        newLista.map(e=>{
+            
+            var elemento=document.createElement("li");
+            var contenido=document.createTextNode(e);
+
+            elemento.appendChild(contenido);
+            padre.appendChild(elemento);
+        }
+        )
+        document.body.appendChild(padre);
+
+        //document.getElementById("lista3").innerHTML=newLista;
+
+    </script>
+</body>
+
+</html>
