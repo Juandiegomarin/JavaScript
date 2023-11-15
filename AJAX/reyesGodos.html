@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <script>
+
+        function muestraGodos() {
+
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    let lista = JSON.parse(this.response);
+                    
+                    ordenar(lista.reyesgodos)
+                }
+            };
+            xmlhttp.open("GET", "reyesGodos.php?", true);
+            // La dirección anterior corresponde a la ubicación de la página php en el servidor localhost
+            // Esta dirección podrá diferir dependiendo de la necesidad del programador.
+            xmlhttp.send();
+        }
+
+    </script>
+</head>
+
+<body>
+    <script>const ordenar = (elemento) => {
+
+        if(Array.isArray(elemento)){
+            for (let i = 0; i < elemento.length; i++) {
+                ordenar(elemento[i])
+                
+            }
+        }else{
+            if(typeof elemento=="object"){
+                console.log(elemento.nombre)
+            }
+            else{
+                console.log(elemento)
+            }
+        }
+
+
+        }
+        muestraGodos();
+
+    </script>
+</body>
+
+</html>

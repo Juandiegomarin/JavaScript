@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculat cuota de préstamo</title>
+    <script>
+        function calcularCuota() {
+            
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("solucion").innerHTML="Su cuota mensual será de: "+this.response+" Euros";
+                    }
+                };
+                xmlhttp.open("GET", "cuota.php?capital=" + document.getElementById("capital").value+"&interes="+document.getElementById("interes").value+"&plazo="+document.getElementById("plazo").value, true);
+                
+                xmlhttp.send();
+            }
+        
+    </script>
+</head>
+<body>
+
+    <p>Cálculo de la cuota de préstamo</p>
+    
+        
+    <input type="number" name="capital" id="capital" placeholder="capital solicitado"><br>
+    <input type="number" name="interes" id="interes" placeholder="interes anual"><br>
+    <input type="number" name="plazo" id="plazo" placeholder="Plazo (meses)" max="12"><br>
+    <button type="submit" name="login" onclick=calcularCuota()>Calcular</button>
+    <p id="solucion"></p>
+    
+</body>
+</html>
