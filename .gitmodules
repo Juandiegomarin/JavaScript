@@ -1,0 +1,3 @@
+[submodule "react/tictactoe"]
+	path = react/tictactoe
+	url = /opt/lampp/htdocs/JavaScript/react/tictactoe
