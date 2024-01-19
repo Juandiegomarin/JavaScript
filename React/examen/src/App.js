@@ -1,79 +1,52 @@
 import React, { Component } from 'react';
-import { Button } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-const MapaBotones = (props) => {
+const Altas= (props)=>{
+// UTILICE HOOKS EN ESTE COMPONENTE
+return (
+<Form>
+<FormGroup>
+<Label for="Nombre">Nombre:</Label>
+<Input name="nombre" id="nombre" placeholder="introduzca
 
-  let campo=props.listaBotones;
-  let tablero=[];
-  for (let i = 0; i < campo.length; i++) {
-    let fila=[];
-    for (let j = 0; j < campo[i].length; j++) {
+nombre"/>
 
-        if (i == 0) {
-          if(campo[i][j]==1){
+<Label for="Nombre">Apellidos:</Label>
+<Input name="apellidos" id="apellidos"
 
-            fila.push(<Button color='primary'>{i+"-"+j}</Button>);
+placeholder="introduzca apellidos"/>
 
-          }else{
+<Label for="Nombre">Telefono:</Label>
+<Input name="telefono" id="telefono" placeholder="introduzca
 
-            fila.push(<Button outline onClick={() => props.clica(j)}>{i+"-"+j}</Button>);
-
-          }
-
-        } else {
-
-          if(campo[i][j]==1){
-
-            fila.push(<Button color='primary'>{i+"-"+j}</Button>);
-
-          }else{
-
-            fila.push(<Button outline>{i+"-"+j}</Button>);
-
-          }
-        }
-    }
-    tablero.push(fila);
-    tablero.push(<br></br>);
-    
-  }
-  return tablero;
+telefono" />
+</FormGroup>
+<Button>Añadir</Button>
+</Form>
+);
 
 }
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      listaBotones: Array(9).fill(null),
-      // no se puede modificar el state
-    }
-  }
-  clica(x) {
-    let tablero=this.state.listaBotones;
-    for (let i = 8; i >=0; i--) {
-      if(tablero[i][x]==null){
-        tablero[i][x]=1;
-        break;
-      }
-    }
-    this.setState({listaBotones:tablero})
-  }
-  componentWillMount() {
-   
-    for (let i = 0; i < this.state.listaBotones.length; i++) {
-      this.state.listaBotones[i] = new Array(9).fill(null);
-    }
+//DWEC. Desarrollo Web en Entorno Cliente
 
-  }
-  render() {
-    return (
-      <div className="App">
-        <h1> BUCHACA </h1>
-        <MapaBotones listaBotones={this.state.listaBotones} clica={(x) => this.clica(x)} />
-      </div>
-    );
-  }
+const Mostrar= (props)=>{
+// ESTE COMPONENTE MUESTRA EL LISTÍN TELEFÓNICO.
 }
 
+class App extends Component{
+constructor(props) {
+super(props);
+this.state = {
+// INSERTE AQUÍ EL ESTADO NECESARIO. AQUÍ SE GUARDARÁ TODA LA
+//INFORMACIÓN DE LA APLICACIÓN. EL LISTÍN TELEFÓNICO
+};
+}
+render(){
+return (
+<div className="App">
+// DEBERÁ RENDERIZAR AL MENOS LOS DOS COMPONENTES ANTERIORES
+</div>
+);
+}
+}
 export default App;
