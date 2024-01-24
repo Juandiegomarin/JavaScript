@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { Button } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
-import React, { useState } from 'react';
+import { useState } from 'react';
 function Botonera(props) {
 
-    const [clicado,setClicado] = useState(false);
+  const [posicion,setPosicion]=useState();
 
 
   let aux = [];
@@ -13,9 +13,9 @@ function Botonera(props) {
     let arr = [];
     for (let j = 0; j < props.tablero[i].length; j++) {
       if (props.tablero[i][j] == "verde") {
-        arr.push(<Button className="relleno" color='success' onClick={setClicado(!clicado)}></Button>);
+        arr.push(<Button className="relleno" color='success'></Button>);
       } else if (props.tablero[i][j] == "azul") {
-        arr.push(<Button className="relleno" color='primary' onClick={setClicado(!clicado)}></Button>);
+        arr.push(<Button className="relleno" color='primary'></Button>);
       } else {
         arr.push(<Button className="relleno" ></Button>);
       }
