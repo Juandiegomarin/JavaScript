@@ -5,19 +5,27 @@ import "./App.css";
 import { useState } from 'react';
 function Botonera(props) {
 
-  const [posicion,setPosicion]=useState();
+  const [color,setColor]=useState("");
+  const [posicionI,setPosicionI]=useState(0);
+  const [posicionJ,setPosicionJ]=useState(0);
 
+  const toogle=(color,i,j)=>{
+    setColor(color)
+    setPosicionI(i)
+    setPosicionJ(j)
+  }
+  
 
   let aux = [];
   for (let i = 0; i < props.tablero.length; i++) {
     let arr = [];
     for (let j = 0; j < props.tablero[i].length; j++) {
       if (props.tablero[i][j] == "verde") {
-        arr.push(<Button className="relleno" color='success'></Button>);
+        arr.push(<Button className="relleno" color='success' onClick={()=>toogle(props.tablero[i][j],i,j)}></Button>);
       } else if (props.tablero[i][j] == "azul") {
-        arr.push(<Button className="relleno" color='primary'></Button>);
+        arr.push(<Button className="relleno" color='primary' onClick={()=>toogle(props.tablero[i][j],i,j)}></Button>);
       } else {
-        arr.push(<Button className="relleno" ></Button>);
+        arr.push(<Button className="relleno" onClick={()=>props.mover(color,posicionI,posicionJ,i,j,props.tablero)}></Button>);
       }
 
       /*if (props.tablero[i][j] == 1) {
@@ -51,12 +59,6 @@ class App extends Component {
     };
   }
   
-  cambiar(x,y){
-
-
-
-  }
-
   componentWillMount() {
 
     let aux = [];
@@ -81,13 +83,48 @@ class App extends Component {
       aux.push(arr);
     }
     this.setState({ matriz: aux });
+  }
+  handleActualizar(tablero){
+
+    this.setState({matriz:tablero})
+
+  }
+  cambiar(color,iPrincipio,jPrincipio,iFin,jFin,tablero){
+    
+    console.log(tablero);
+    console.log(color);
+    let aux=tablero;
+    if(color!=="verde" && color!=="azul") return;
+    
+    
+    if(color==="verde"){
+      if((iFin-1===iPrincipio && jFin+1 ===jPrincipio)|| (iFin-1===iPrincipio && jFin-1 ===jPrincipio)){
+
+        aux[iFin][jFin]="verde";
+        aux[iPrincipio][jPrincipio]="";
+        
+      }else{
+        return;
+      }
+     }else{
+      if((iFin+1===iPrincipio && jFin+1 ===jPrincipio)|| (iFin+1===iPrincipio && jFin-1 ===jPrincipio)){
+
+        aux[iFin][jFin]="azul";
+        aux[iPrincipio][jPrincipio]="";
+        
+      }else{
+        return;
+      }
+     }
+
+     
 
   }
 
   render() {
     return (
       <div className="App">
-        <Botonera tablero={this.state.matriz} mover={this.cambiar} />
+        <Botonera tablero={this.state.matriz} mover={this.cambiar} actualizar={this.handleActualizar}/>
       </div>
     );
   }
