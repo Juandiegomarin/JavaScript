@@ -124,7 +124,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Botonera tablero={this.state.matriz} mover={this.cambiar} actualizar={this.handleActualizar}/>
+        <Botonera tablero={this.state.matriz} mover={this.cambiar}/>
       </div>
     );
   }
