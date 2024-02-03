@@ -15,7 +15,7 @@ class App extends Component {
     render() {
         return (
             <div className="App">
-                <Button color="danger">Hola</Button>
+               
             </div>
         );
     }
