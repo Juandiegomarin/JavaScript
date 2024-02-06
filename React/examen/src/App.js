@@ -112,13 +112,7 @@ class App extends Component {
     }
     this.setIsOpen(!this.state.isOpen);
   }
-  eliminarUser(telefono){
 
-    let listaCopia = this.state.listaUsuarios.slice();
-    let listaFiltrada = listaCopia.filter(p=>p.telefono!==telefono);
-    this.setState({listaUsuarios:listaFiltrada});
-
-  }
 
   render() {
     return (
