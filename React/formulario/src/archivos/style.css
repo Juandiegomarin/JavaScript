@@ -1,0 +1,20 @@
+.div > .boton {
+    border: 1px solid rgb(235, 76, 76);
+    margin: 10px;
+}
+
+.App {
+    text-align: center;
+}
+.div{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    flex: 100%;
+    border: 1px solid black;
+    margin: 3rem;
+    padding: 1rem;
+}
+.div > h1{
+    flex: 100%;
+}
