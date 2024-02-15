@@ -11,8 +11,8 @@ function Muestra(props) {
       <div className='div'>
         <h1>{e.pregunta}</h1>
         {e.respuestas.map(r =>
-          
-          <Button value={r.valor} className="boton" color='outline' onClick={props.click(r.respuesta, r.valor)}>{r.respuesta}</Button>
+
+          <Button value={r.valor} className="boton" color='outline' onClick={()=>props.click(r.respuesta, r.valor)}>{r.respuesta}</Button>
         )}
       </div>
     )
@@ -22,23 +22,37 @@ function Muestra(props) {
 function App() {
   const preguntas = todasPreguntas.preguntas;
 
-  const [respuestas, setRespuestas] = useState([]);
+  const [seleccionadas, setSeleccionadas] = useState([{ texto: "Hola", valor: 1 }]);
+  const MuestraRespuestas = () => {
 
+    return (
+      <>
+        <ul>
+          {seleccionadas.map(r => <li>{r.texto}</li>
+          )}
+        </ul>
+      </>
+    );
+  }
   const guardaRespuesta = (texto, valor) => {
 
     let respuesta = {
       texto: texto,
       valor: valor
     }
-
-    let copia = respuestas
+    console.log(respuesta);
+    let copia = seleccionadas;
     copia.push(respuesta)
-    setRespuestas(copia)
-
+    setSeleccionadas(copia)
   }
+
+
+
+
   return (
     <div className="App">
-      <Muestra lista={preguntas} respuestas={respuestas} click={guardaRespuesta} />
+      <Muestra lista={preguntas} respuestas={seleccionadas} click={guardaRespuesta} />
+      <MuestraRespuestas />
     </div>
   );
 }
