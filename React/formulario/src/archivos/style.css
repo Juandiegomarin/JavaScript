@@ -18,3 +18,19 @@
 .div > h1{
     flex: 100%;
 }
+
+.divFototipo{
+    display: flex;
+    flex-flow: row wrap;
+    flex: 100%;
+    justify-content: space-around;
+    border: 1px solid black;
+    background-color: blanchedalmond;
+    margin: 3rem;
+    padding: 1rem;
+}
+.divFototipo >:nth-child(1){
+    flex: 0 70%;
+}
+
+
