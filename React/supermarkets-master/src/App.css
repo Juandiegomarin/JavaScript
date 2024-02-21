@@ -28,10 +28,34 @@
   color: #61dafb;
 }
 
+
+div#contenedorApp {
+
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+}
+
+
+div#contenedorApp>* {
+
+  flex-basis: 40%;
+}
+
+div#botneraForm {
+
+  display: flex;
+  flex-flow: column wrap;
+  text-align: center;
+}
+
+
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
